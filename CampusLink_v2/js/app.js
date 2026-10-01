@@ -233,7 +233,7 @@ async function loadDashboard() {
   } catch(e) {notice("dashboardState",e.message,"error","dashboard");notice("analyticsState",e.message,"error","dashboard");}
 }
 async function health() {
-  try {await api("/health",{root:true});$("connectionStatus").textContent="Backend online";}
+  try {await api("/health");$("connectionStatus").textContent="Backend online";}
   catch {$("connectionStatus").textContent="Backend unavailable";}
 }
 async function uploadResume(form) {
