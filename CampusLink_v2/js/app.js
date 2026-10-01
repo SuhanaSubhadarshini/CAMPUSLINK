@@ -24,7 +24,7 @@ async function api(path, options={}) {
   try {
     const headers=new Headers(rest.headers||{});
     if(json!==undefined) headers.set("Content-Type","application/json");
-    const response=await fetch((root?"http://127.0.0.1:8000":API_BASE_URL)+path,{
+    const response=await fetch(API_BASE_URL+path,{
       ...rest,headers,signal:controller.signal,...(json!==undefined?{body:JSON.stringify(json)}:{})
     });
     if(!response.ok) {
