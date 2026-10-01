@@ -3,7 +3,7 @@ const eligibilityClass=e=>e.status==="UNVERIFIED"?"unverified":e.eligible?"ready
 const coverageText=v=>v===null||v===undefined?"Skill coverage unavailable":fmt(v)+"%";
 const componentText=v=>v===null||v===undefined?"Unavailable":fmt(v);
 // All fit scores and eligibility decisions come from the backend.
-const API_BASE_URL = "http://127.0.0.1:8000/api/v1";
+const API_BASE_URL = "https://campuslink-rj40.onrender.com/api/v1";
 const $ = id => document.getElementById(id);
 const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmt = (v, n=1) => Number(v).toFixed(n);
