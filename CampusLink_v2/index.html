@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusLink — Placement Intelligence</title>
+  <link rel="stylesheet" href="css/style.css"><link rel="icon" href="data:,">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span>
+        </span>
+        <span>
+          <strong>CampusLink</strong>
+          <small>Placement Intelligence</small>
+        </span>
+      </a>
+
+      <nav class="nav"><p class="nav-label">Discover. Analyze. Connect.</p><a class="nav-item" href="#home" data-section="home"><span class="nav-icon">D</span>Dashboard</a><a class="nav-item" href="#jobs" data-section="jobs"><span class="nav-icon">O</span>Opportunities</a><a class="nav-item" href="#students" data-section="students"><span class="nav-icon">M</span>My Profile / Students</a><a class="nav-item" href="#discovery" data-section="discovery" data-role="student"><span class="nav-icon">J</span>Jobs for Me</a><a class="nav-item" href="#matches" data-section="matches" data-role="officer"><span class="nav-icon">M</span>Matching</a><a class="nav-item" href="#roadmap" data-section="roadmap" data-role="student"><span class="nav-icon">S</span>Skill Gaps</a><a class="nav-item" href="#offers" data-section="offers"><span class="nav-icon">A</span>Applications / Placements</a><a class="nav-item" href="#analytics" data-section="analytics" data-role="officer"><span class="nav-icon">A</span>Analytics</a><a class="nav-item" href="#admin" data-section="admin" data-role="officer"><span class="nav-icon">A</span>Admin Tools</a></nav>
+
+      <div class="sidebar-bottom">
+        <div class="mini-card">
+          <span class="mini-dot"></span>
+          <div><strong>Placement mode</strong><small>Explore &amp; match</small></div>
+        </div>
+        <button class="help-btn" id="helpBtn">?</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand">
+          <span class="brand-mark"><span></span><span></span></span>
+          <strong>CampusLink</strong>
+        </div>
+        <div class="topbar-actions"><label class="role-control">View as<select id="roleSelect"><option value="student">Student</option><option value="officer">Placement Officer</option></select></label>
+          <span id="connectionStatus" class="demo-badge" role="status">Connecting...</span>
+          <button class="student-chip" id="studentBtn">
+            <span class="avatar" id="studentInitials">?</span><span><strong id="currentStudentName">Select a student</strong><small id="currentStudentMeta">Student profile</small></span>
+            <span class="chevron">⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <section id="home" class="page-section active-section">
+        <div class="hero">
+          <div>
+            <span class="eyebrow">AI-ASSISTED STUDENT &harr; JOB MATCHING</span>
+            <h1>Find the right <em>opportunity.</em><br>Find the right candidate.</h1>
+            <p>CAMPUSLINK analyzes placement opportunities against student profiles to identify eligible candidates, explain their fit, and reveal the skills they need to improve.</p>
+            <div class="hero-actions">
+              <button class="primary-btn" id="createMyProfile">Create My Profile <span>→</span></button>
+              <button class="primary-btn" data-go="jobs">Explore opportunities</button><button class="ghost-btn" id="jobsForMe">Jobs for Me</button>
+            </div>
+          </div>
+<article class="panel purpose-card"><span class="eyebrow">DISCOVER &rarr; ANALYZE &rarr; CONNECT</span><h2>Your skills. Your next opportunity.</h2><p>Select your profile, compare real requirements and see exactly why an opportunity fits.</p><p class="muted">Sources are labeled on each opportunity. Search Adzuna on demand, then import opportunities to analyze them.</p></article></div>
+
+        <div id="dashboardState" class="api-state" role="status"></div><div id="dashboardContent"></div></section>
+<section id="matches" class="page-section"><div class="page-title"><span class="eyebrow">EXPLAINABLE MATCHING</span><h1>See why a job matches your candidate.</h1><p>Select a student and target job. Eligibility and fit are separate results.</p></div>
+<article class="panel"><div class="form-grid">
+<label>Student<select id="matchStudent" disabled><option value="">Loading students...</option></select></label>
+<label>Target job<select id="matchJob" disabled><option value="">Loading jobs...</option></select></label></div>
+<div class="hero-actions"><button class="ghost-btn" id="eligibilityBtn" disabled>Check eligibility</button><button class="primary-btn" id="fitBtn" disabled>Generate Fit Score</button></div>
+<p class="muted">AI-Assisted Explainable Matching. A hackathon heuristic, not a validated hiring model.</p></article>
+<div id="matchingState" class="api-state" role="status"></div><div id="matchingResult"></div></section>
+<section id="readiness" class="page-section"><div class="page-title"><span class="eyebrow">AI FIT SCORE</span><h1>Understand the score behind the match.</h1><p>The backend supplies every score, weight and contribution shown here.</p></div>
+<button class="ghost-btn" data-go="matches">Choose student and job</button><div id="readinessState" class="api-state" role="status"></div><div id="readinessResult"></div></section>
+<section id="roadmap" class="page-section"><div class="page-title"><span class="eyebrow">SKILL GAP ROADMAP</span><h1>Skill Gap Analysis</h1><p>Select an opportunity to see what skills you need to improve.</p></div>
+<button class="ghost-btn" id="refreshGapChoices">Refresh opportunities</button><div id="gapChoicesState" class="api-state" role="status"></div><div id="gapChoices" class="source-sections"></div><div id="gapState" class="api-state" role="status"></div><div id="gapResult"></div></section>
+
+<section id="offers" class="page-section"><div class="page-title"><span class="eyebrow">OFFER TRACKER</span><h1>From interest to your next role.</h1><p>Track interest, selection, offers and joining through your placement cell.</p></div>
+<div id="placementState" class="api-state" role="status"></div>
+<article class="panel"><h3>Record an offer</h3><form id="placementForm"><fieldset id="placementFields" disabled><div class="form-grid">
+<label>Student<select id="placementStudent" required></select></label>
+<label>Job (company is taken from the job)<select id="placementJob" required></select></label>
+<label>Status<select name="status"><option>offered</option><option>accepted</option><option>joined</option><option>rejected</option><option>withdrawn</option></select></label>
+<label>Annual package (INR LPA)<input name="package" type="number" min="0" step="any" value="0" required></label>
+<label>Offer date<input name="offer_date" type="date"></label><label>Joining date<input name="joining_date" type="date"></label>
+</div><button class="primary-btn" type="submit">Create placement</button></fieldset></form>
+<div id="placementFormState" class="api-state" role="status"></div></article>
+<label class="filter-label">Offer list<select id="placementFilter"><option value="all">All students</option><option value="selected">Selected student only</option></select></label>
+<article class="panel space-top"><h2>Applications / interest</h2><p>Interest is recorded for your placement cell; no message is sent to an employer.</p><button class="ghost-btn" id="refreshApplications">Refresh applications</button><div id="applicationState" class="api-state" role="status"></div><div id="applicationList" class="stack"></div></article><h2 class="space-top">Offers &amp; joining</h2><div id="placementList" class="stack"></div></section>
+<section id="analytics" class="page-section"><div class="page-title"><span class="eyebrow">PLACEMENT INSIGHTS</span><h1>Turn placement activity into decisions.</h1><p>Opportunity requirements, student skill gaps and placement results from the current database.</p></div>
+<div id="analyticsState" class="api-state" role="status"></div><div id="analyticsContent"></div></section>
+
+<section id="students" class="page-section"><div class="page-title"><span class="eyebrow">STUDENT PROFILES</span><h1>Build a profile that connects.</h1><p>Choose or create a student profile, review skills and discover suitable opportunities.</p></div>
+<div class="hero-actions"><button class="primary-btn" id="addStudent">+ Add Student / Create Profile</button><button class="ghost-btn" id="myProfile">My Profile / Readiness</button></div><p class="muted">Initial records are sample/demo data. Create your own profile to start.</p><div id="studentsState" class="api-state" role="status"></div><div class="match-layout"><div id="studentList" class="match-list"></div><article id="studentProfile" class="panel"></article></div></section>
+<section id="jobs" class="page-section"><div class="page-title"><span class="eyebrow">AVAILABLE OPPORTUNITIES</span><h1>Find the right next step.</h1><p>Explore external jobs, compare your skills, and review every match.</p></div>
+<article class="panel external-search"><span class="eyebrow">EXTERNAL JOB OPPORTUNITIES</span><h2>Find current jobs from Adzuna</h2><p>Search India listings, then explicitly import an opportunity for CAMPUSLINK analysis. Search results are separate from stored opportunities below.</p><form id="externalSearchForm" class="form-grid"><label>Role / keyword<input name="query" value="software engineer" maxlength="150" required></label><label>Location<input name="location" value="India" maxlength="150" placeholder="Bhubaneswar, Bengaluru, Remote..."></label><details class="search-options"><summary>Search options</summary><div class="form-grid"><label>Career keywords<select name="focus"><option value="all">Any level</option><option value="fresher">Fresher / entry-level keywords</option><option value="internship">Internship keywords</option><option value="junior">Junior keywords</option></select></label><label>Sort<select name="sort_by"><option value="date">Newest</option><option value="relevance">Relevance</option></select></label><label>Page<input name="page" type="number" value="1" min="1" max="100" required></label><label>Results per page<select name="limit"><option>5</option><option selected>10</option><option>20</option></select></label></div></details><button class="primary-btn" type="submit">Search current jobs</button></form><p class="muted">Career keywords search listing text; they do not verify experience. Adzuna does not provide a native experience-range filter. Manual search only. Identical searches may be reused for five minutes. A listing is not a guarantee of availability or campus eligibility.</p><div id="externalState" class="api-state" role="status"></div><div id="externalResults" class="gap-grid"></div></article><h2 class="space-top">Explore opportunities</h2><form id="opportunityFilters" class="form-grid panel"><label>Role or company<input name="q" placeholder="Search available opportunities"></label><label>Location<input name="location" placeholder="Any location"></label><label>Type<select name="job_type"><option value="">All types</option><option>full-time</option><option>internship</option><option>part-time</option><option>contract</option></select></label><label>Source<select name="source"><option value="">All sources</option><option value="demo">Demo dataset</option><option value="manual">Manual entry</option><option value="json_import">JSON import</option><option value="legacy">Placement database record</option><option value="adzuna">Adzuna</option></select></label><button class="primary-btn" type="submit">Filter opportunities</button><button class="ghost-btn" type="button" id="opportunityJobsForMe">Jobs for Me</button></form><div id="jobsState" class="api-state" role="status"></div><div id="jobList" class="source-sections"></div></section>
+<section id="companies" class="page-section"><div class="page-title"><span class="eyebrow">COMPANY RADAR</span><h1>Explore your campus employers.</h1><p>Company records from the local database. Fictional demo companies are labeled in their profiles.</p></div>
+<div id="companiesState" class="api-state" role="status"></div><div id="companyList" class="company-strip"></div></section>
+<section id="discovery" class="page-section">
+<div class="page-title"><span class="eyebrow">AI-ASSISTED EXPLAINABLE MATCHING</span><h1 id="discoveryTitle">Find the right match.</h1><p id="discoveryContext"></p><div id="discoverySource"></div></div>
+<div class="hero-actions"><button class="ghost-btn" id="refreshDiscovery">Refresh results</button><button class="ghost-btn" data-go="students">My profile</button><button class="ghost-btn" data-go="jobs">Browse opportunities</button></div>
+<div id="discoveryState" class="api-state" role="status"></div><div id="discoveryResults" class="stack"></div>
+</section><section id="opportunity" class="page-section"><button class="ghost-btn" data-go="jobs">Back to opportunities</button><div id="opportunityState" class="api-state" role="status"></div><div id="opportunityDetail"></div></section>
+<section id="admin" class="page-section"><div class="page-title"><span class="eyebrow">PLACEMENT OFFICER</span><h1>Opportunity sources &amp; imports</h1><p>Local records only. Import a permitted JSON feed or add a vacancy manually. This view selector is not authentication.</p></div><div class="hero-actions"><button class="primary-btn" id="addJob">Add opportunity manually</button><button class="ghost-btn" id="addCompany">Add company</button><button class="ghost-btn" data-go="companies">Company directory</button></div>
+<article class="panel space-top"><h3>Import opportunities from JSON</h3><p>Use existing company IDs from the directory. Up to 100 records per import; the entire batch succeeds or fails. Unknown vacancy counts can be omitted. A source reference prevents reimporting the same record.</p><form id="importForm"><label>JSON file (optional)<input type="file" id="importFile" accept=".json,application/json"></label><label>JSON payload<textarea id="importJSON" rows="9" required placeholder='{"opportunities":[{"company_id":1,"title":"Your actual role","required_skills":["Your skill"],"source_reference":"your-unique-reference"}]}'></textarea></label><button class="primary-btn" type="submit">Import opportunities</button></form><div id="importState" class="api-state" role="status"></div></article><article class="panel space-top"><h3>Manage availability</h3><button class="ghost-btn" id="refreshAdmin">Refresh opportunities</button><div id="adminState" class="api-state" role="status"></div><div id="adminOpportunities" class="stack"></div></article></section></main></div>
+<div class="modal" id="companyModal" role="dialog" aria-modal="true" aria-labelledby="modalCompany">
+<div class="modal-card"><button class="modal-close" id="closeModal" aria-label="Close company profile">&times;</button><div id="companyModalBody"></div></div></div>
+<dialog id="editorDialog" class="editor-dialog" aria-labelledby="editorTitle">
+<div class="editor-head"><div><span class="eyebrow">YOUR PLACEMENT JOURNEY</span><h2 id="editorTitle"></h2></div><button type="button" class="ghost-btn" id="closeEditor" aria-label="Close editor">Close</button></div>
+<form id="recordForm"><fieldset id="editorFields"><div id="editorBody"></div><div class="hero-actions"><button class="primary-btn" type="submit" id="saveRecord">Save</button><button class="ghost-btn" type="button" id="cancelEditor">Cancel</button></div></fieldset></form>
+<div id="editorState" class="api-state" role="status"></div>
+</dialog>
+<datalist id="skillSuggestions"></datalist><datalist id="roleSuggestions"></datalist>
+<div class="toast" id="toast" role="status"></div><script src="js/app.js"></script><script src="js/workflows.js"></script><script src="js/opportunities.js"></script><script src="js/external.js"></script></body></html>

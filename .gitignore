@@ -1,0 +1,10 @@
+
+# Local browser verification environment
+.frontend-test-env/
+.frontend-backend-hashes.json
+
+# Credentials (all local dotenv variants)
+.env
+.env.*
+!.env.example
+.vscode/

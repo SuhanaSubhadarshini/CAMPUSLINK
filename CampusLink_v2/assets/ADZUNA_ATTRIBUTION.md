@@ -1,0 +1,1 @@
+Official Adzuna logo downloaded from https://developer.adzuna.com/images/adzuna_logo.png for Jobs by Adzuna attribution. Brand belongs to Adzuna. API terms: https://developer.adzuna.com/docs/terms_of_service

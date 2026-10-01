@@ -1,0 +1,148 @@
+{
+  "Python": [
+    "python"
+  ],
+  "Java": [
+    "java"
+  ],
+  "JavaScript": [
+    "javascript",
+    "js"
+  ],
+  "TypeScript": [
+    "typescript",
+    "ts"
+  ],
+  "C++": [
+    "c++",
+    "cpp"
+  ],
+  "C": [
+    "c"
+  ],
+  "C#": [
+    "c#",
+    "csharp"
+  ],
+  "SQL": [
+    "sql"
+  ],
+  "HTML": [
+    "html",
+    "html5"
+  ],
+  "CSS": [
+    "css",
+    "css3"
+  ],
+  "React": [
+    "react",
+    "react.js",
+    "reactjs"
+  ],
+  "Node.js": [
+    "node.js",
+    "nodejs",
+    "node"
+  ],
+  "FastAPI": [
+    "fastapi"
+  ],
+  "Django": [
+    "django"
+  ],
+  "Flask": [
+    "flask"
+  ],
+  "Git": [
+    "git"
+  ],
+  "Docker": [
+    "docker"
+  ],
+  "AWS": [
+    "aws",
+    "amazon web services"
+  ],
+  "Pandas": [
+    "pandas"
+  ],
+  "NumPy": [
+    "numpy"
+  ],
+  "Excel": [
+    "excel"
+  ],
+  "Machine Learning": [
+    "machine learning",
+    "ml"
+  ],
+  "scikit-learn": [
+    "scikit-learn",
+    "sklearn"
+  ],
+  "Data Structures": [
+    "data structures",
+    "dsa"
+  ],
+  "MongoDB": [
+    "mongodb",
+    "mongo"
+  ],
+  "PostgreSQL": [
+    "postgresql",
+    "postgres"
+  ],
+  "MySQL": [
+    "mysql"
+  ],
+  "Power BI": [
+    "power bi",
+    "powerbi"
+  ],
+  "Communication": [
+    "communication"
+  ],
+  "Figma": [
+    "figma"
+  ],
+  "Linux": [
+    "linux"
+  ],
+  "Spring Boot": [
+    "spring boot"
+  ],
+  "Testing": [
+    "testing",
+    "pytest"
+  ],
+  "Deep Learning": [
+    "deep learning"
+  ],
+  "TensorFlow": [
+    "tensorflow"
+  ],
+  "PyTorch": [
+    "pytorch"
+  ],
+  "Generative AI": [
+    "generative ai",
+    "genai"
+  ],
+  "LLM": [
+    "llm",
+    "llms",
+    "large language models"
+  ],
+  "RAG": [
+    "rag",
+    "retrieval augmented generation"
+  ],
+  "Azure": [
+    "azure"
+  ],
+  "Kubernetes": [
+    "kubernetes",
+    "k8s"
+  ]
+}
